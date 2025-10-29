@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran Interaktif: Epistemologi Pendidikan Al-Ghazali</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f4f4f9;
+            --text-color: #333;
+            --header-bg: #fff;
+            --border-color: #ddd;
+            --hover-color: #007bff;
+            --correct-color: #28a745;
+            --incorrect-color: #dc3545;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 160px; 
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            font-size: 1.15rem; 
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 20px 0 0 0;
+            border-bottom: 2px solid var(--primary-color);
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0 0 15px 0;
+            color: var(--primary-color);
+            font-size: 2.8rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: var(--primary-color);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            background-color: var(--hover-color);
+        }
+
+        main {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            font-size: 2.2rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        blockquote {
+            border-left: 5px solid var(--primary-color);
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        #quiz {
+            margin-top: 40px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--secondary-color);
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+        
+        .question p {
+            font-weight: 500;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 12px;
+            cursor: pointer;
+            padding: 10px;
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .options label:hover {
+            background-color: #e9ecef;
+        }
+        
+        input[type="text"], textarea {
+            width: calc(100% - 22px); /* Adjusted for padding and border */
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--hover-color);
+        }
+
+        #results {
+            margin-top: 25px;
+            font-weight: bold;
+            padding: 15px;
+            background-color: #e6f7ff;
+            border-left: 5px solid var(--primary-color);
+        }
+        
+        /* New Styles for Quiz Feedback */
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .correct-feedback {
+            background-color: #e9f7ef;
+            color: var(--correct-color);
+            border-left: 5px solid var(--correct-color);
+        }
+        .incorrect-feedback {
+            background-color: #fdeded;
+            color: var(--incorrect-color);
+            border-left: 5px solid var(--incorrect-color);
+        }
+        .correct-answer {
+            background-color: #d4edda !important;
+            border-color: var(--correct-color) !important;
+            font-weight: bold;
+        }
+        .incorrect-answer {
+            background-color: #f8d7da !important;
+            border-color: var(--incorrect-color) !important;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Epistemologi Pendidikan Al-Ghazali</h1>
+        <nav>
+            <a href="#pendahuluan">Pendahuluan</a>
+            <a href="#konsep-ilmu">Konsep Ilmu</a>
+            <a href="#epistemologi">Epistemologi</a>
+            <a href="#metodologi">Metodologi</a>
+            <a href="#kuis">Kuis Interaktif</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main>
+            <section id="pendahuluan">
+                <h2>📜 PENDAHULUAN</h2>
+                <p>Pendidikan Islam memiliki tradisi intelektual yang kaya, dan salah satu karya monumentalnya adalah <strong>Ihya 'Ulumiddin</strong> oleh Imam Al-Ghazali (1058-1111 M). Kitab ini menjadi rujukan penting dalam memahami konsep pendidikan Islam yang integratif dan holistik. Al-Ghazali, dengan gelar <em>Hujjatul Islam</em>, adalah seorang teolog, filsuf, dan sufi brilian yang pengalamannya terejawantahkan dalam Ihya 'Ulumiddin.</p>
+                <p>Kajian ini bertujuan untuk mengeksplorasi konsep-konsep pendidikan dalam Ihya 'Ulumiddin dan menganalisis relevansinya dengan teori-teori belajar kontemporer, seperti behaviorisme, kognitivisme, dan humanisme.</p>
+            </section>
+            
+            <hr>
+
+            <section id="konsep-ilmu">
+                <h2>🧠 KONSEP ILMU DALAM PERSPEKTIF AL-GHAZALI</h2>
+                <p>Bagi Al-Ghazali, ilmu memiliki kedudukan tertinggi dalam Islam. Beliau membagi ilmu menjadi dua kategori utama:</p>
+                <ul>
+                    <li><strong>Fardhu 'Ain (Wajib Individual):</strong> Ilmu yang wajib dipelajari setiap muslim, seperti ilmu tauhid, fiqh dasar, dan akhlak.</li>
+                    <li><strong>Fardhu Kifayah (Wajib Kolektif):</strong> Ilmu yang jika telah dipelajari oleh sebagian anggota masyarakat, maka gugurlah kewajiban dari yang lainnya, contohnya ilmu kedokteran, pertanian, dan industri.</li>
+                </ul>
+                <p>Klasifikasi ini menunjukkan pemahaman Al-Ghazali yang progresif tentang pentingnya keseimbangan antara ilmu-ilmu keagamaan dan duniawi.</p>
+            </section>
+
+            <hr>
+
+            <section id="epistemologi">
+                <h2>💡 EPISTEMOLOGI PENDIDIKAN AL-GHAZALI</h2>
+                <p>Al-Ghazali mengidentifikasi tiga sumber pengetahuan yang membentuk hierarki epistemologis:</p>
+                <ol>
+                    <li><strong>Indera (Hawas):</strong> Tingkat paling dasar, namun dapat menipu dan terbatas.</li>
+                    <li><strong>Akal ('Aql):</strong> Diperlukan untuk menganalisis, mensintesis, dan memverifikasi data inderawi.</li>
+                    <li><strong>Intuisi Spiritual (Dzauq/Mukasyafah):</strong> Tingkat tertinggi yang diperoleh melalui penyucian jiwa. Pengetahuan ini disebut juga <em>ma'rifah</em>.</li>
+                </ol>
+                <blockquote>"Ilmu yang paling mulia adalah ilmu yang membawa kepada ma'rifatullah (pengenalan kepada Allah)".</blockquote>
+            </section>
+            
+            <hr>
+
+            <section id="metodologi">
+                <h2>👨‍🏫 METODOLOGI PEMBELAJARAN</h2>
+                <p>Al-Ghazali mengajukan berbagai metode pembelajaran yang progresif, di antaranya:</p>
+                <ul>
+                    <li><strong>Metode Bertahap (Tadarruj):</strong> Pembelajaran dari yang mudah ke yang sulit, sejalan dengan teori perkembangan kognitif Piaget.</li>
+                    <li><strong>Metode Dialog dan Diskusi (Mudzakarah):</strong> Mendorong dialog intelektual untuk pemahaman yang lebih mendalam, mirip dengan pendekatan kolaboratif Vygotsky.</li>
+                    <li><strong>Metode Keteladanan (Uswah Hasanah):</strong> Menekankan pentingnya contoh nyata dari guru, relevan dengan teori pembelajaran sosial Bandura.</li>
+                    <li><strong>Metode Pembiasaan (Ta'wid):</strong> Pembentukan akhlak melalui pengulangan perbuatan baik, yang memiliki kemiripan dengan teori behaviorisme Skinner.</li>
+                </ul>
+            </section>
+
+            <hr>
+            
+            <section id="kuis">
+                <h2>📝 KUIS INTERAKTIF</h2>
+                <p>Uji pemahaman Anda terhadap materi yang telah disajikan.</p>
+                <div id="quiz-container">
+                    <div class="question">
+                        <p><strong>1. Menurut Al-Ghazali, ilmu yang wajib dipelajari oleh setiap individu Muslim untuk menjalankan kewajiban agamanya disebut...</strong></p>
+                        <div class="options">
+                            <label><input type="radio" name="q1" value="a"> Fardhu Kifayah</label>
+                            <label><input type="radio" name="q1" value="b"> Fardhu 'Ain</label>
+                            <label><input type="radio" name="q1" value="c"> Ma'rifah</label>
+                            <label><input type="radio" name="q1" value="d"> Tadabbur</label>
+                        </div>
+                        <div class="feedback" id="feedback-q1"></div>
+                    </div>
+                    <div class="question">
+                        <p><strong>2. Sumber pengetahuan tertinggi dalam hierarki epistemologi Al-Ghazali yang diperoleh melalui penyucian jiwa adalah...</strong></p>
+                        <div class="options">
+                            <label><input type="radio" name="q2" value="a"> Akal ('Aql)</label>
+                            <label><input type="radio" name="q2" value="b"> Indera (Hawas)</label>
+                            <label><input type="radio" name="q2" value="c"> Intuisi Spiritual (Dzauq)</label>
+                            <label><input type="radio" name="q2" value="d"> Tafakkur</label>
+                        </div>
+                        <div class="feedback" id="feedback-q2"></div>
+                    </div>
+                    <div class="question">
+                        <p><strong>3. (Isi bagian yang kosong) Al-Ghazali menyatakan: "Ilmu tanpa amal adalah seperti pohon tanpa _______."</strong></p>
+                        <input type="text" id="q3" placeholder="Jawaban Anda...">
+                        <div class="feedback" id="feedback-q3"></div>
+                    </div>
+                    <div class="question">
+                        <p><strong>4. (Soal Reflektif) Bagaimana Anda bisa menerapkan konsep keteladanan (Uswah Hasanah) yang diajarkan Al-Ghazali dalam kehidupan Anda sehari-hari, baik sebagai pelajar maupun sebagai calon pendidik?</strong></p>
+                        <textarea id="q4" rows="5" placeholder="Tuliskan refleksi Anda di sini..."></textarea>
+                    </div>
+
+                    <button onclick="submitQuiz()">Kirim Jawaban</button>
+                    <div id="results"></div>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer>
+            <p>SPA Pembelajaran Interaktif ini dibuat berdasarkan naskah "Epistemologi Pendidikan dalam Ihya 'Ulumiddin Al-Ghazali".</p>
+        </footer>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            // Reset previous feedback and styles
+            const feedbacks = document.querySelectorAll('.feedback');
+            feedbacks.forEach(fb => {
+                fb.innerHTML = '';
+                fb.className = 'feedback';
+            });
+            const labels = document.querySelectorAll('.options label');
+            labels.forEach(l => l.className = '');
+            document.getElementById('q3').className = '';
+
+
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'buah'
+            };
+            let score = 0;
+            const totalQuestions = 3;
+
+            // Check Q1
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            const feedbackQ1 = document.getElementById('feedback-q1');
+            if (q1Answer) {
+                const selectedLabel = q1Answer.parentElement;
+                if (q1Answer.value === answers.q1) {
+                    score++;
+                    selectedLabel.classList.add('correct-answer');
+                    feedbackQ1.innerHTML = "<strong>Benar!</strong> Fardhu 'Ain adalah ilmu yang wajib dipelajari setiap individu Muslim, seperti dasar-dasar akidah dan ibadah.";
+                    feedbackQ1.classList.add('correct-feedback');
+                } else {
+                    selectedLabel.classList.add('incorrect-answer');
+                    feedbackQ1.innerHTML = "<strong>Salah.</strong> Jawaban yang benar adalah <strong>Fardhu 'Ain</strong>. Fardhu Kifayah adalah kewajiban kolektif (misalnya ilmu kedokteran), bukan kewajiban setiap individu.";
+                    feedbackQ1.classList.add('incorrect-feedback');
+                    // Highlight the correct answer for the user
+                    document.querySelector('input[name="q1"][value="b"]').parentElement.classList.add('correct-answer');
+                }
+            } else {
+                feedbackQ1.innerHTML = "Anda belum menjawab soal ini.";
+                feedbackQ1.classList.add('incorrect-feedback');
+            }
+
+
+            // Check Q2
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+            const feedbackQ2 = document.getElementById('feedback-q2');
+            if (q2Answer) {
+                const selectedLabel = q2Answer.parentElement;
+                if (q2Answer.value === answers.q2) {
+                    score++;
+                    selectedLabel.classList.add('correct-answer');
+                    feedbackQ2.innerHTML = "<strong>Benar!</strong> Intuisi spiritual (Dzauq atau Mukasyafah) adalah puncak pengetahuan yang menurut Al-Ghazali diperoleh langsung dari Tuhan melalui penyucian hati.";
+                    feedbackQ2.classList.add('correct-feedback');
+                } else {
+                    selectedLabel.classList.add('incorrect-answer');
+                    feedbackQ2.innerHTML = "<strong>Salah.</strong> Jawaban yang benar adalah <strong>Intuisi Spiritual (Dzauq)</strong>. Akal dan indera dianggap sebagai tingkatan di bawahnya yang bisa keliru.";
+                    feedbackQ2.classList.add('incorrect-feedback');
+                    document.querySelector('input[name="q2"][value="c"]').parentElement.classList.add('correct-answer');
+                }
+            } else {
+                feedbackQ2.innerHTML = "Anda belum menjawab soal ini.";
+                feedbackQ2.classList.add('incorrect-feedback');
+            }
+
+
+            // Check Q3
+            const q3Input = document.getElementById('q3');
+            const q3Answer = q3Input.value.trim().toLowerCase();
+            const feedbackQ3 = document.getElementById('feedback-q3');
+            if (q3Answer === answers.q3) {
+                score++;
+                q3Input.classList.add('correct-answer');
+                feedbackQ3.innerHTML = "<strong>Benar!</strong> Perumpamaan ini sangat terkenal untuk menekankan pentingnya mengamalkan ilmu agar bermanfaat.";
+                feedbackQ3.classList.add('correct-feedback');
+            } else {
+                q3Input.classList.add('incorrect-answer');
+                feedbackQ3.innerHTML = "<strong>Kurang tepat.</strong> Jawaban yang benar adalah <strong>'buah'</strong>. Ilmu tanpa amal diibaratkan seperti pohon yang tidak menghasilkan buah.";
+                feedbackQ3.classList.add('incorrect-feedback');
+            }
+            
+            // Display final results
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<p>Skor Akhir Anda: ${score} dari ${totalQuestions}.</p>`;
+
+            const q4Answer = document.getElementById('q4').value.trim();
+            if(q4Answer.length > 0) {
+                 resultsDiv.innerHTML += "<p>Terima kasih atas refleksi Anda! Jawaban Anda sangat berharga untuk pengembangan diri.</p>";
+            } else {
+                 resultsDiv.innerHTML += "<p>Jangan lupa untuk mengisi soal reflektif untuk melatih pemikiran kritis Anda.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>
